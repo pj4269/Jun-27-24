@@ -1,1 +1,43 @@
-{}
+{
+  "api": {
+    "apijun2724": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "amplifylambdajun27"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "amplifylambdajun27": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_amplifylambdajun27_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifylambdajun27"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifylambdajun27_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifylambdajun27"
+        }
+      ]
+    }
+  }
+}

@@ -9,6 +9,17 @@
       "UnauthRoleName": "amplify-jun2724-dev-110853-unauthRole",
       "StackName": "amplify-jun2724-dev-110853",
       "StackId": "arn:aws:cloudformation:us-west-2:711141261525:stack/amplify-jun2724-dev-110853/51816e20-34b0-11ef-a049-0a1ef36ec999"
+    },
+    "categories": {
+      "function": {
+        "amplifylambdajun27": {
+          "deploymentBucketName": "amplify-jun2724-dev-110853-deployment",
+          "s3Key": "amplify-builds/amplifylambdajun27-494555635a6d44784a45-build.zip"
+        }
+      },
+      "api": {
+        "apijun2724": {}
+      }
     }
   }
 }
