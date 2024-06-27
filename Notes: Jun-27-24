@@ -1,0 +1,192 @@
+
+
+Ref:     
+  
+    Solution:             
+    
+    1) Python use  : ls /usr/bin/python*
+    
+        a)  Update python path:  export PATH="/usr/bin:python3.12"              # this
+    
+        b)  Give priority : 2 > 1: 
+                                                                              
+                   sudo update-alternatives --install /usr/bin/python python /home/micah/anaconda3/bin/python3.9 1
+                   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.12 2
+  
+
+        c) switch between different Python env's (3.9 vs 3.12):  update-alternatives --config python
+
+
+
+   
+            
+                            
+   2. Create React project: -
+   ->                         
+      npx create-react-app jun-27-24    
+      cd jun-27-24 
+      npm start                                                                        
+   
+   -> push to Github       
+   
+
+
+			git init
+			git add *
+			git commit -m "first commit"
+			git branch -M main
+			git remote add origin https://github.com/pj4269/Jun-27-24.git
+			git push -u origin main
+			
+			
+			
+	-> uploaded the front-end to Amplify through Github		  -                            
+	
+	    -> Add service:AdministratorAccess-Amplifym    : my_amplify_admin              - if necessary
+	
+  -> API
+
+   amplify init                                           : Lambda :  amplifylambdajun17     :   - works with Gen 2  - 
+     
+  -> pushed it to Github
+  
+  
+      git init
+			git add *
+			git commit -m "2nd commit"
+			git push -u origin main
+   
+  a) 
+  
+     amplify add api                                        : apijun2724       - Here
+
+			
+                       path                               : /getP   => Problem method : any     => change it afterwards to get/pots at "GateWay Api"
+                                                            
+                                                            /customers/{customerId}
+
+
+                       lambda name                        : create Lambda: amplifylambdajun27
+                       
+     python : changed from Pythpon 3.8 to Python 3.12  -( python--version) -> 
+     
+                                                            update a] Pipfile
+                                                                    b] ../amplify/backend/function/amplifyjun05/amplifyjun05-cloudformation-template.json                       
+    
+    npx update-browserslist-db@latest               # Optional
+                   
+    npm install @aws-amplify/ui-react aws-amplify   # is this necessary? Yes!
+                      
+    Lambda edit:  index.my_handler       # watch for CloudWatch for any errors!   #  
+     
+                   
+                       
+    amplify push   #pushes backend to the cloud vs amplify publish both frontend + backend   => This will update your code changes in Lambda + Gateway
+    
+                   rest api: https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev
+
+
+
+    
+    github push    - 
+    
+    
+    Ap.js  -  Change : const myAPI = "apijune13"    // not Lambda name!
+                       const path = "/customers"; 
+
+    
+    
+  b) Test it on Postman
+
+  c)  Lambda Gateway :        getP is "ANY"    -> delete it
+                                                  -> add new method "GET"   => test it with POSTMAN + Cloudwatch  -> Works
+                                                  
+  
+  d) amplify add api  :       postP -> automatically "ANY"
+                              
+                                -> manually edit API: delete ANY  ...                                                
+                      :   if you change API on gateway api page, it' not recognizing it!   => amplify add api "NewGetP "
+                                                                                           => On Gateway, deleted ANY added GET
+  
+
+								                                    
+   amplify push        : 
+    
+   
+   -> push it to Github        => error: "can't locate aws-exports.js"    solution: it is was in index.js. 1) So I copied and pasted the content of aws-exports.js
+                                                                                     in the index.js file and 
+                                                                                                           2) commented out //import awsExports from "./aws-exports";
+                                                                                                              in index.js
+                                                                                     
+   
+
+   
+   
+##########################################   
+   
+my_handler:::::::::::
+   
+   
+def my_handler(event, context):
+  print('received event: ', event)
+  get_raw_path    = "/NewGetP"
+  create_raw_path = "/postP"
+  
+  time = "11:53"
+  message = {"f_name":"AAAAAAA", "l_name":"BBBBBBBBBB"}
+  
+  if event['path'] == get_raw_path:
+    # call database
+    pid = event['queryStringParameters']['p_id']
+    print ("Using GEEEEEEEETTTTT")
+    print ("received number: ", pid, type(pid), int(pid)+5)
+    print ('Hello from your new Amplify Python lambda GET !' + time)
+    #return { "aaaaaaaaaaaaaaaaa": "bbbbbbbbb"  }
+    #message = {"f_name":"AAAAAAA", "l_name":"BBBBBBBBBB"}
+    # not worked:
+    #return {"f_name":"AAAAAAA", "l_name":"BBBBBBBBBB"} 
+    # worked
+    return {
+      'statusCode': 200,
+      'headers': {
+          'Access-Control-Allow-Headers': '*',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET' }, 'body': json.dumps( message )#'Hello from your new Amplify Python lambda GET !' + time)
+          }
+    
+          
+          
+  elif  event['path'] == create_raw_path:
+    print ("Using POSSSSSSSSSST")
+    
+    body = json.loads(event['body'])
+    f_name = body['f_name']
+    l_name = body['l_name']
+    print ("received names:  ",  f_name, l_name)
+    print ('Hello from your new Amplify Python lambda- POST!'  + time)
+    # return {"f_name_received": f_name}
+    #worked
+    return {
+      'statusCode': 200,
+      'headers': {
+          'Access-Control-Allow-Headers': '*',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST' }, 'body': json.dumps(message)
+          }
+    
+          
+  else:
+    return {
+      'statusCode': 200,
+      'headers': {
+          'Access-Control-Allow-Headers': '*',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'  },  'body': json.dumps('Hello from your new Amplify Python lambda-ANY '  + time) }
+  
+   
+
+   
+                       
+                       
+                       
+			

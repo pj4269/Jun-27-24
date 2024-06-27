@@ -1,15 +1,12 @@
-
 import './App.css';
 import { get } from 'aws-amplify/api';
 import { useState } from 'react'
-
 import { Amplify } from "aws-amplify";
 
+import WebCam2 from './components/MyWebCam';
 
 const myAPI = "apijun2724"//"https://c7hgw5za5e.execute-api.us-west-2.amazonaws.com/dev"//"June07AmplifyLambda2"
 const path = "/customers"; 
-
-
 
 
 
@@ -30,10 +27,6 @@ const App = () => {
   const [input, setInput] = useState("")
   const [customers, setCustomers] = useState([])
 
-
-  
-  
-  
   async function getCustomer(e) {
     let customerId = e.input
     const restOperation = get({apiName: myAPI, path: path + "/" + customerId})
@@ -51,6 +44,8 @@ const App = () => {
     
     <div className="App">
       <h1>Super Simple React App</h1>
+       <WebCam2 />
+
       <div>
           <input placeholder="customer id" type="text" value={input} onChange={(e) => setInput(e.target.value)}/>      
       </div>

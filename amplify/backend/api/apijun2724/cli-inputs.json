@@ -7,6 +7,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/uploadfile": {
+      "name": "/uploadfile",
+      "lambdaFunction": "amplifylambdajun27",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }
