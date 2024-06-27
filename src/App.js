@@ -3,8 +3,28 @@ import './App.css';
 import { get } from 'aws-amplify/api';
 import { useState } from 'react'
 
+import { Amplify } from "aws-amplify";
+
+
 const myAPI = "apijun2724"//"https://c7hgw5za5e.execute-api.us-west-2.amazonaws.com/dev"//"June07AmplifyLambda2"
 const path = "/customers"; 
+
+
+
+
+
+const awsmobile = {
+    "aws_project_region": "us-west-2",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "apijun2724",
+            "endpoint": "https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev",
+            "region": "us-west-2"
+        }
+    ]
+};
+
+Amplify.configure(awsmobile);
 
 const App = () => {
   const [input, setInput] = useState("")
