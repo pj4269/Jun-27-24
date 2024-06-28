@@ -55,12 +55,12 @@ def handler(event, context):
     #if event['httpMethod'] != 'POST':
     #  return {'statusCode': 400, 'body': json.dumps({'error': 'Method not allowed'})  
     # Photo experiment: 7:17 am
-    print ("received at AWS Lambdaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!   12:38 pm")
-    #body = event['body']
-    body = json.loads(event['body'])
-    file_content = body.get('file', '')
+    print ("received at AWS Lambdaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!   12:55 pm")
+    body = event['body']
+    #body = json.loads(event['body'])
+    #file_content = body.get('file', '')
     print ("Body ", body)
-    print ("file_content: ", file_content)
+    #print ("file_content: ", file_content)
     #save_path = 'Jun_28_picture.jpg'  
     #with open(save_path, 'wb') as f:
     #  f.write(file_content)
