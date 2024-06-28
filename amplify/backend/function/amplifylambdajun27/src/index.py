@@ -52,8 +52,9 @@ def handler(event, context):
           
   else:
     # Photo experiment: 7:17 am
+    print ("received at AWS Lambdaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!")
     body = event['body']
-    save_path = 'uploaded_picture.jpg'  
+    save_path = 'Jun_28_picture.jpg'  
     with open(save_path, 'wb') as f:
       f.write(file_content)
   

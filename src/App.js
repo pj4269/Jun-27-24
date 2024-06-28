@@ -3,7 +3,7 @@ import { get } from 'aws-amplify/api';
 import { useState } from 'react'
 import { Amplify } from "aws-amplify";
 
-import WebCam2 from './components/MyWebCam';
+import WebCam from './components/MyWebCam';
 import Photo_capture_from_scratch from  './components/MyWebCam2';
 import UploadPicture from './components/UploadPic'
 
@@ -45,12 +45,13 @@ const App = () => {
   return (
     
     <div className="App">
-      <h2>  <UploadPicture/>  </h2>
+
+      <h1>1st WebCam: </h1>
+       <WebCam />      
       <h1> 2nd WebCam: </h1>    
       <Photo_capture_from_scratch />
-      <h1>1st WebCam: </h1>
-       <WebCam2 />
-
+      <h2> 3. Upload  </h2>
+      <h2>  <UploadPicture/>  </h2>
       <div>
           <input placeholder="customer id" type="text" value={input} onChange={(e) => setInput(e.target.value)}/>      
       </div>

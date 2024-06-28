@@ -26,7 +26,7 @@ const handleUpload = async () => {
         };
 
         // Send the file to AWS Lambda via an HTTP POST request
-        const response = await fetch('https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile2', requestOptions);
+        const response = await fetch('http://0.0.0.0:8000/uploadfile/', requestOptions);
         
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);

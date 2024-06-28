@@ -72,13 +72,14 @@ function Photo_capture_from_scratch() {
   };
 
   try {
-    const response = await fetch("http://0.0.0.0:8000/uploadfile/", requestOptions);
+    //const response = await fetch("http://0.0.0.0:8000/uploadfile/", requestOptions);
+    const response = await fetch("https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile/", requestOptions);    
     const responseData = await response.json(); // if you expect a JSON response
 
     setUploadSuccess(true);
     
     //const response2 = await fetch('http://localhost:8000/uploadfile2/');  // Replace with your endpoint
-    const response2 = await fetch('https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile2/')      
+    const response2 = await fetch('https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile/')      
    
     console.log( "URL is here" )
       
