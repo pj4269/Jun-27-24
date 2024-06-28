@@ -96,7 +96,7 @@ const WebCam2 = () => {
   link.click();
     //end of saving
 
-    fetch("http://0.0.0.0:8000/uploadfile/", requestOptions)
+    fetch("https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile/", requestOptions)
       .then(response => response.json())
       .then(function(response) {
         console.log("Sent the file from Comp5 to FastAPI");

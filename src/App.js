@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Amplify } from "aws-amplify";
 
 import WebCam2 from './components/MyWebCam';
+import Photo_capture_from_scratch from  './components/MyWebCam2';
+
 
 const myAPI = "apijun2724"//"https://c7hgw5za5e.execute-api.us-west-2.amazonaws.com/dev"//"June07AmplifyLambda2"
 const path = "/customers"; 
@@ -43,7 +45,9 @@ const App = () => {
   return (
     
     <div className="App">
-      <h1>Super Simple React App</h1>
+      <h1> 2nd WebCam: </h1>    
+      <Photo_capture_from_scratch />
+      <h1>1st WebCam: </h1>
        <WebCam2 />
 
       <div>
