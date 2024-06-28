@@ -77,7 +77,7 @@ function Photo_capture_from_scratch() {
     const responseData = await response.json(); // if you expect a JSON response
 
     setUploadSuccess(true);
-    
+    /* uncommet this - Jun 28
     //const response2 = await fetch('http://localhost:8000/uploadfile2/');  // Replace with your endpoint
     const response2 = await fetch('https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile/')      
    
@@ -86,49 +86,9 @@ function Photo_capture_from_scratch() {
     const blob = await response2.blob();
     const url = URL.createObjectURL(blob);
     setImageUrl(url);    
+    */
     
-     
-     /*
-    fetch('http://localhost:8000/uploadfile2/').then(response2 => response2.blob()).then(blob => {
-        const imageUrl2 = URL.createObjectURL(blob);
-        setImageUrl(imageUrl2) } ) 
-      */
- 
-        
-
-    /*
-
-        if (response.ok) {
-            // Receive the file back from FastAPI
-            const receivedFile = await fetch('http://0.0.0.0:8000/downloadfile/' + formData2.name); // Assuming endpoint provides file by name
-            // Process received file, e.g., display a download link or display the image
-        } else {
-            // Handle errors
-        }
-     
-   */    
-    
-    
-    /*
-    
-    const MyImage = () => {
-  const [timestamp, setTimestamp] = React.useState(Date.now());
-
-  const refreshImage = () => {
-    setTimestamp(Date.now());
-  };
-
-  return (
-    <div>
-      <img src={`http://localhost:8000/example/image.png?t=${timestamp}`} alt="My Image" />
-      <button onClick={refreshImage}>Refresh Image</button> 
-    </div>
-  );
-}; */
-    
-    
-    
-    
+       
     
     
     
