@@ -46,9 +46,8 @@ const App = () => {
     
     <div className="App">
 
-      <h1>1st WebCam: </h1>
-       <WebCam />      
-      <h1> 2nd WebCam: </h1>    
+   
+      <h2> 2nd WebCam: Left here Jun 28, 24</h2>    
       <Photo_capture_from_scratch />
       <h2> 3. Upload  </h2>
       <h2>  <UploadPicture/>  </h2>
@@ -67,6 +66,10 @@ const App = () => {
         </div>)
        })
       }
+      
+      <h2>1st WebCam: Not working!</h2>
+       <WebCam />   
+      
     </div>
   )
 }
