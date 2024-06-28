@@ -117,7 +117,16 @@ Ref:
                                                                                      in the index.js file and 
                                                                                                            2) commented out //import awsExports from "./aws-exports";
                                                                                                               in index.js
-                                                                                     
+   
+   
+   3. FastApi:  
+   
+   - cd FastApi
+   #python3 -m venv env
+	 source env/bin/activate
+	 pip install fastapi uvicorn 
+	 uvicorn main:app --reload 
+	 http://127.0.0.1:8000                                                                                  
    
 
    

@@ -5,6 +5,8 @@ def handler(event, context):
   get_raw_path    = "/NewGetP"
   create_raw_path = "/postP"
   
+  picture_path   = "/"
+  
   time = "9:50"
   message = {"f_name":"AAAAAAA", "l_name":"BBBBBBBBBB"}
   
@@ -49,9 +51,20 @@ def handler(event, context):
     
           
   else:
+    # Photo experiment: 7:17 am
+    body = event['body']
+    save_path = 'uploaded_picture.jpg'  
+    with open(save_path, 'wb') as f:
+      f.write(file_content)
+  
     return {
       'statusCode': 200,
       'headers': {
           'Access-Control-Allow-Headers': '*',
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'  },  'body': json.dumps('Hello from your new Amplify Python lambda-ANY '  + time) }
+          
+          
+          
+          
+          

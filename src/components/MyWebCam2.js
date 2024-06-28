@@ -77,7 +77,10 @@ function Photo_capture_from_scratch() {
 
     setUploadSuccess(true);
     
-    const response2 = await fetch('http://localhost:8000/uploadfile2/');  // Replace with your endpoint      
+    //const response2 = await fetch('http://localhost:8000/uploadfile2/');  // Replace with your endpoint
+    const response2 = await fetch('https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile2/')      
+   
+    console.log( "URL is here" )
       
     const blob = await response2.blob();
     const url = URL.createObjectURL(blob);
