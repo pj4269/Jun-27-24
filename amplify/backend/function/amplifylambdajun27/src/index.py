@@ -52,15 +52,15 @@ def handler(event, context):
           
   else:
     # Ensure we're receiving a POST request with multipart/form-data content
-    if event['httpMethod'] != 'POST':
-      return {'statusCode': 400, 'body': json.dumps({'error': 'Method not allowed'})  
+    #if event['httpMethod'] != 'POST':
+    #  return {'statusCode': 400, 'body': json.dumps({'error': 'Method not allowed'})  
     # Photo experiment: 7:17 am
     print ("received at AWS Lambdaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!   12:38 pm")
     #body = event['body']
     body = json.loads(event['body'])
     file_content = body.get('file', '')
-    print (body)
-    
+    print ("Body ", body)
+    print ("file_content: ", file_content)
     #save_path = 'Jun_28_picture.jpg'  
     #with open(save_path, 'wb') as f:
     #  f.write(file_content)
