@@ -73,9 +73,12 @@ function Photo_capture_from_scratch() {
 
   try {
     //const response = await fetch("http://0.0.0.0:8000/uploadfile/", requestOptions);
+    // sending data to Lambda
     const response = await fetch("https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile/", requestOptions);    
+    // receiving the data from lambda
     const responseData = await response.json(); // if you expect a JSON response
     console.log( "MyWebCam2  worked just fine!  11:33 am   -   Jun 28, 24")
+    console.log("Response from Lambda: ", responseData)
     setUploadSuccess(true);
     /* uncommet this - Jun 28
     //const response2 = await fetch('http://localhost:8000/uploadfile2/');  // Replace with your endpoint

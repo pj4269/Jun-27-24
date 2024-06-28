@@ -44,11 +44,7 @@ const handleUpload = async () => {
     }
 };
 
-
-/*
-
-
-        try {
+/*       try {
             // Send the file to AWS Lambda via an HTTP POST request
 
             const response = await axios.post('YOUR_LAMBDA_API_ENDPOINT', formData, {
