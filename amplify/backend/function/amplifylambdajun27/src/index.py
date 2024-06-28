@@ -7,7 +7,7 @@ def handler(event, context):
   
   picture_path   = "/"
   
-  time = "9:50"
+  time = "11:22"
   message = {"f_name":"AAAAAAA", "l_name":"BBBBBBBBBB"}
   
   if event['path'] == get_raw_path:
