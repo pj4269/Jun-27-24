@@ -54,9 +54,12 @@ def handler(event, context):
     # Photo experiment: 7:17 am
     print ("received at AWS Lambdaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!")
     body = event['body']
-    save_path = 'Jun_28_picture.jpg'  
-    with open(save_path, 'wb') as f:
-      f.write(file_content)
+    print (event)
+    
+    #save_path = 'Jun_28_picture.jpg'  
+    #with open(save_path, 'wb') as f:
+    #  f.write(file_content)
+    # Now I want to send it back!
   
     return {
       'statusCode': 200,

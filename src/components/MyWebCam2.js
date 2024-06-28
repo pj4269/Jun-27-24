@@ -99,8 +99,6 @@ function Photo_capture_from_scratch() {
   }
 };
 
- //
-
 
 
   const handleDownload = () => {
