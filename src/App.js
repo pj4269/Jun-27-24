@@ -49,6 +49,7 @@ const App = () => {
    
       <h2> 2nd WebCam: Left here Jun 28, 24</h2>    
       <Photo_capture_from_scratch />
+      
       <h2> 3. Upload  </h2>
       <h2>  <UploadPicture/>  </h2>
       <div>

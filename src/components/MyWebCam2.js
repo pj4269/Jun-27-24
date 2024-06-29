@@ -64,7 +64,6 @@ function Photo_capture_from_scratch() {
   // For caching: 
   const timestamp = Date.now();
   formData2.append("file", capturedFile, `${timestamp}_${capturedFile.name}`);  
-  //formData2.append("file", capturedFile, capturedFile.name);
   console.log( "Hi ", formData2 )
   const requestOptions = {
     method: "POST",
@@ -72,24 +71,12 @@ function Photo_capture_from_scratch() {
   };
 
   try {
-    //const response = await fetch("http://0.0.0.0:8000/uploadfile/", requestOptions);
     // sending data to Lambda
     const response = await fetch("https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile/", requestOptions);    
-    // receiving the data from lambda
     const responseData = await response.json(); // if you expect a JSON response
     console.log( "MyWebCam2  worked just fine!  12:56 am   -   Jun 28, 24")
-    console.log("Response from Lambda: ", responseData)
     setUploadSuccess(true);
-    /* uncommet this - Jun 28
-    //const response2 = await fetch('http://localhost:8000/uploadfile2/');  // Replace with your endpoint
-    const response2 = await fetch('https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile/')      
-   
-    console.log( "URL is here" )
-      
-    const blob = await response2.blob();
-    const url = URL.createObjectURL(blob);
-    setImageUrl(url);    
-    */
+
     
        
     

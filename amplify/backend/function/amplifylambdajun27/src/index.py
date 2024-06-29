@@ -56,10 +56,18 @@ def handler(event, context):
     #  return {'statusCode': 400, 'body': json.dumps({'error': 'Method not allowed'})  
     # Photo experiment: 7:17 am
     print ("received at AWS Lambdaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!   1:26 pm")
-    body = event['body']
+    print ("Check CloudWatch")
+    
+    photo = event['body']
+    # Test:
+    #thumbnail_size = (50, 50)
+    #image = Image.open(BytesIO(photo))
+    #image.thumbnail(thumbnail_size) 
+    
+    
     #body = json.loads(event['body'])
     #file_content = body.get('file', '')
-    print ("Body ", body)
+    print ("Event ",event)
     #print ("file_content: ", file_content)
     #save_path = 'Jun_28_picture.jpg'  
     #with open(save_path, 'wb') as f:
@@ -71,6 +79,7 @@ def handler(event, context):
       'headers': {
           'Access-Control-Allow-Headers': '*',
           'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'  },  'body': json.dumps(body) }
+          'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'  },  'body': json.dumps(photo) }
+          
   
           
