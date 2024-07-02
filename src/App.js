@@ -6,6 +6,10 @@ import { Amplify } from "aws-amplify";
 import WebCam from './components/MyWebCam';
 import Photo_capture_from_scratch from  './components/MyWebCam2';
 import UploadPicture from './components/UploadPic'
+import UploadPicture2 from './components/UploadPic2'
+import PhotoDisplay from './components/PhotoFromLambda'
+
+import Photo_capture_from_scratch2 from  './components/MyWebCam3';
 
 const myAPI = "apijun2724"//"https://c7hgw5za5e.execute-api.us-west-2.amazonaws.com/dev"//"June07AmplifyLambda2"
 const path = "/customers"; 
@@ -45,13 +49,25 @@ const App = () => {
   return (
     
     <div className="App">
-
-   
+    
+      <h2> Jul 2, 24: </h2>    
+      <Photo_capture_from_scratch2/>
+      
+            
+      <h2> Jul 1, 24: </h2>    
+      <UploadPicture2/>
       <h2> 2nd WebCam: Left here Jun 28, 24</h2>    
       <Photo_capture_from_scratch />
       
-      <h2> 3. Upload  </h2>
+      <h2> 3. Photo from Lambda: Jul 2. 24 </h2>
+      <div>     <PhotoDisplay />    </div>      
+   
+      
+      <h2> 4. Upload  </h2>
       <h2>  <UploadPicture/>  </h2>
+      
+
+      
       <div>
           <input placeholder="customer id" type="text" value={input} onChange={(e) => setInput(e.target.value)}/>      
       </div>

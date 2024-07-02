@@ -7,6 +7,10 @@ function Photo_capture_from_scratch() {
   const photoRef = useRef(null);
   const [height, setHeight] = useState(0);
 
+  const [IsUploading, setIsUploading] = useState(false);  // take it out
+  // new: Jun 29, 24
+  const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [photoSrc, setPhotoSrc] = useState('');
 
   const [imageUrl, setImageUrl] = useState(null);
   useEffect(() => {
@@ -51,8 +55,8 @@ function Photo_capture_from_scratch() {
 
 
 
-  const [IsUploading, setIsUploading] = useState(false);
-  const [UploadSuccess, setUploadSuccess] = useState(false);
+  
+
 
 
   // New function to send the picture over API
@@ -74,11 +78,13 @@ function Photo_capture_from_scratch() {
     // sending data to Lambda
     const response = await fetch("https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile/", requestOptions);    
     const responseData = await response.json(); // if you expect a JSON response
-    console.log( "MyWebCam2  worked just fine!  12:56 am   -   Jun 28, 24")
-    setUploadSuccess(true);
-
+    console.log( "MyWebCam2  worked just fine!  10:47 am   -   Jun 29, 24")    
     
-       
+    // New: Jun 29, 24 : Receiving Photo from Lambda
+    setUploadSuccess(true);
+    const imageSrc = await fetchPhotoFromLambda();
+    console.log("Received Data from Lambda", imageSrc);
+    setPhotoSrc(imageSrc); // Update state with the fetched photo   
     
     
     
@@ -136,7 +142,24 @@ const handleCanPlayThrough = () => {
 };
 
 
+// new : Jun 29, 24
 
+    const fetchPhotoFromLambda = async () => {
+        try {
+            const response = await fetch("https://g9qdesewp6.execute-api.us-west-2.amazonaws.com/dev/uploadfile/");
+            if (!response.ok) {
+                throw new Error('Not getting anything from the backend!');
+            }
+            //const data = await response.json();
+            //const base64Photo = data;
+            //return `data:image/jpeg;base64,${base64Photo}`;
+            const blob = await response.blob();
+            return URL.createObjectURL(blob);
+        } catch (error) {
+            console.error('Error fetching photo:', error);
+            throw error; // Propagate the error to handle it in the caller function
+        }
+    };
 
 
 
@@ -157,11 +180,20 @@ const handleCanPlayThrough = () => {
       ) : (
         <p>Loading image...</p>
       )}
-    </div>        
-        
-        
-        
+    </div>         
       </div>
+      
+             <div>  Jun 29, 24: 
+            <input type="file" onChange={(e) => handleSubmit(e.target.files[0])} />
+            {uploadSuccess && (
+                <div>
+                    <p>Upload successful!</p>
+                    {photoSrc && <img src={photoSrc} alt="Uploaded" style={{ maxWidth: '100%' }} />}
+                </div>
+            )}
+        </div>
+      
+      
       <div>
         <button onClick={handleTakePicture}>Take photo</button>
         <button onClick={handleDownload}>Download</button>
