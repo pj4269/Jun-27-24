@@ -11,6 +11,8 @@ import PhotoDisplay from './components/PhotoFromLambda'
 
 import Photo_capture_from_scratch2 from  './components/MyWebCam3';
 
+
+
 const myAPI = "apijun2724"//"https://c7hgw5za5e.execute-api.us-west-2.amazonaws.com/dev"//"June07AmplifyLambda2"
 const path = "/customers"; 
 
@@ -49,6 +51,7 @@ const App = () => {
   return (
     
     <div className="App">
+
     
       <h2> Jul 2, 24: </h2>    
       <Photo_capture_from_scratch2/>

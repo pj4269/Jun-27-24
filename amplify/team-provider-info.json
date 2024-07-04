@@ -14,7 +14,7 @@
       "function": {
         "amplifylambdajun27": {
           "deploymentBucketName": "amplify-jun2724-dev-110853-deployment",
-          "s3Key": "amplify-builds/amplifylambdajun27-78653347324a63756748-build.zip"
+          "s3Key": "amplify-builds/amplifylambdajun27-74744457685270623953-build.zip"
         }
       },
       "api": {

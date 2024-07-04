@@ -1,3 +1,15 @@
+Jul 03 : Install Pillow
+
+       1) cd /home/micah/Desktop/mobile_app/jun-27-24/amplify/backend/function/amplifylambdajun27
+
+       2) pip install Pillow -t .  # -t means target directory installation 
+
+       3) Amplify push
+   
+
+
+Jun 27: 
+
 
 
 Ref:     
@@ -6,7 +18,7 @@ Ref:
     
     1) Python use  : ls /usr/bin/python*
     
-        a)  Update python path:  export PATH="/usr/bin:python3.12"              # this
+        a)  Update python path:  export PATH="/usr/bin:python3.12"              # this will switch to Python temporarily
     
         b)  Give priority : 2 > 1: 
                                                                               
